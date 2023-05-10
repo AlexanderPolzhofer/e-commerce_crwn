@@ -38,7 +38,11 @@ export const CategoryBodyContainer = styled.div`
     }
   }`
 
-export const CategoryContainer = styled.div`
+interface CategoryBodyContainerProps {
+  backgroundImage: string
+}
+
+export const CategoryContainer = styled.div<CategoryBodyContainerProps>`
   min-width: 30%;
   height: 240px;
   flex: 1 1 auto;
@@ -48,6 +52,7 @@ export const CategoryContainer = styled.div`
   border: 1px solid black;
   margin: 0 7.5px 15px;
   overflow: hidden;
+  background-image: url(${({ backgroundImage }) => backgroundImage});
 
   &:hover {
     cursor: pointer;
