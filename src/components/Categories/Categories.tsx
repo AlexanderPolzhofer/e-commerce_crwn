@@ -1,9 +1,5 @@
-import {
-  BackgroundImage,
-  CategoriesContainer,
-  CategoryBodyContainer,
-  CategoryContainer,
-} from './Categories.style'
+import { CategoryItem } from '../CategoryItem/CategoryItem'
+import { CategoriesContainer } from './Categories.style'
 
 export const Categories = () => {
   const categories = [
@@ -37,13 +33,7 @@ export const Categories = () => {
   return (
     <CategoriesContainer>
       {categories.map(({ title, imageUrl }) => (
-        <CategoryContainer backgroundImage={imageUrl}>
-          <BackgroundImage />
-          <CategoryBodyContainer>
-            <h2>{title}</h2>
-            <p>Shop Now</p>
-          </CategoryBodyContainer>
-        </CategoryContainer>
+        <CategoryItem imageUrl={imageUrl} title={title} />
       ))}
     </CategoriesContainer>
   )
