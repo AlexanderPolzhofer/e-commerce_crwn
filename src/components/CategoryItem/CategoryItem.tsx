@@ -2,7 +2,7 @@ import {
   BackgroundImage,
   CategoryBodyContainer,
   CategoryContainer,
-} from './../Categories/Categories.style'
+} from './CategoryItem.style'
 
 interface CategoryItemProps {
   imageUrl: string

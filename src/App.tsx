@@ -1,7 +1,7 @@
-import { Categories } from './components/Categories/Categories'
+import { Directory } from './components/Directory/Directory'
 
 function App() {
-  return <Categories />
+  return <Directory />
 }
 
 export default App
