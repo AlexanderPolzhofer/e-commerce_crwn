@@ -5,8 +5,8 @@ import { categories } from '../../utils/categories'
 export const Directory = () => {
   return (
     <DirectoryContainer>
-      {categories.map(({ title, imageUrl }) => (
-        <CategoryItem imageUrl={imageUrl} title={title} />
+      {categories.map(({ title, imageUrl }, idx) => (
+        <CategoryItem key={idx} imageUrl={imageUrl} title={title} />
       ))}
     </DirectoryContainer>
   )
