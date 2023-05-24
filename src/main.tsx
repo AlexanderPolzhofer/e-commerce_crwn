@@ -11,6 +11,12 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         styles={css`
           * {
             font-family: 'Roboto Condensed';
+            box-sizing: border-box;
+          }
+          a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
           }
         `}
       />
