@@ -7,7 +7,7 @@ interface TextInputFieldProps {
   id: string
   name: string
   value?: string
-  onChange?: (e: React.ChangeEvent) => void
+  onChange?: ((event: React.ChangeEvent<HTMLInputElement>) => void) | undefined
 }
 
 export const TextInputField: React.FC<TextInputFieldProps> = ({
@@ -25,7 +25,7 @@ export const TextInputField: React.FC<TextInputFieldProps> = ({
       name={name}
       value={value}
       onChange={onChange}
-      id={id}
+      id={id}      
     />
   )
 }

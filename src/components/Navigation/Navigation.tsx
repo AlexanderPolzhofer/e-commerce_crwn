@@ -11,7 +11,7 @@ export const Navigation = () => (
       </Link>
       <LinkContainer>
         <Link to="/shop">SHOP</Link>
-        <Link to="/signin">SIGN IN</Link>
+        <Link to="/sign-in">SIGN IN</Link>
       </LinkContainer>
     </NavigationBar>
     <Outlet />
