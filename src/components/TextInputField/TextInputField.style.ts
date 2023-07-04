@@ -4,7 +4,8 @@ export const TextArea = styled.input`
   width: 100%;
   height: 100%;
   padding: 8px;
-  border-radius: 4px;
-  border: 1px solid gray;
+  border: none;
+  border-bottom: 2px solid gray;
   font-size: 14px;
+  outline: none;
 `

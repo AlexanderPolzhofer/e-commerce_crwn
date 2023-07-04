@@ -1,7 +1,8 @@
 /// <reference types="vite/client" />
 
 interface ImportMetaEnv {
-    readonly APP_TITLE: string
+    readonly VITE_DB_CONNECTION: string
+    readonly VITE_DB_NAME: string;
   }
   
   interface ImportMeta {

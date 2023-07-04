@@ -6,4 +6,6 @@
 * typescript 
 * vite 
 * emotion.js
-* sass
+* express
+* mongoDb
+* react query

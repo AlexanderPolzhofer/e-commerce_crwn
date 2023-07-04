@@ -3,6 +3,8 @@ import styled from '@emotion/styled'
 
 interface CustomButtonProps {
   buttonType: 'inverted' | 'default' | 'googleSignIn'
+  disabled?: boolean
+  additionalStyles?: string
 }
 
 export const CustomButton = styled.button<CustomButtonProps>`
@@ -16,9 +18,10 @@ export const CustomButton = styled.button<CustomButtonProps>`
   text-transform: uppercase;
   font-family: 'Roboto Condensed';
   font-weight: bolder;
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   display: flex;
   justify-content: center;
+  ${({ additionalStyles }) => additionalStyles}
 
   ${({ buttonType }) => {
     switch (buttonType) {
@@ -28,7 +31,7 @@ export const CustomButton = styled.button<CustomButtonProps>`
           color: black;
           border: 1px solid black;
 
-          &:hover {
+          &:hover:enabled {
             background-color: black;
             color: white;
             border: none;
@@ -40,7 +43,7 @@ export const CustomButton = styled.button<CustomButtonProps>`
           color: white;
           border: none;
 
-          &:hover {
+          &:hover:enabled {
             background-color: #357ae8;
             border: 1px solid white;
           }
@@ -51,7 +54,7 @@ export const CustomButton = styled.button<CustomButtonProps>`
           color: white;
           border: none;
 
-          &:hover {
+          &:hover:enabled {
             background-color: white;
             color: black;
             border: 1px solid black;

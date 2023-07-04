@@ -3,6 +3,7 @@ import { Container, Form, Subheading } from '../SignUp/SignUp.style'
 import { TextInputField } from '../TextInputField/TextInputField'
 import { Label } from '../Label/Label'
 import { CustomButton } from '../Button/Button.style'
+import { InputFieldName } from '../../constants/types'
 
 interface InitialValues {
   email: string
@@ -21,42 +22,41 @@ export const SignIn = () => (
     <p>Sign up with your email and password:</p>
     <Formik
       initialValues={initialValues}
-      validate={(values) => {
-        const errors = { email: '' }
-        if (!values.email) {
-          errors.email = 'Required'
-        } else if (
-          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-        ) {
-          errors.email = 'Invalid email address'
-        }
-        return errors
-      }}
-      onSubmit={(values, { setSubmitting }) => {
-        alert(values)
+      onSubmit={(values, { setValues, setSubmitting }) => {
+        alert(JSON.stringify(values))
+        setValues(initialValues)
         setSubmitting(false)
       }}
     >
-      {({ values, errors, touched, handleChange, handleSubmit }) => (
-        <Form onSubmit={handleSubmit}>
-          <Label htmlFor="email">Email</Label>
+      {({ values, errors, touched, setFieldValue, handleSubmit }) => (
+        <Form onSubmit={() => handleSubmit()}>
+          <Label htmlFor={InputFieldName.EMAIL}>Email</Label>
           <TextInputField
-            id="email"
-            name="email"
+            id="email1"
+            name={InputFieldName.EMAIL}
             placeholder={errors.email && touched.email ? errors.email : 'Email'}
             value={values.email}
-            onChange={handleChange}
+            onChange={(e) =>
+              setFieldValue(InputFieldName.EMAIL, e.target.value)
+            }
           />
-          <Label htmlFor="password">Password</Label>
+          <Label htmlFor={InputFieldName.PASSWORD}>Password</Label>
           <TextInputField
-            type="password"
-            id="password"
-            name="password"
+            type={InputFieldName.PASSWORD}
+            id="password1"
+            name={InputFieldName.PASSWORD}
             placeholder="Password"
             value={values.password}
-            onChange={handleChange}
+            onChange={(e) =>
+              setFieldValue(InputFieldName.PASSWORD, e.target.value)
+            }
           />
-          <CustomButton buttonType="inverted" type="submit">
+          <CustomButton
+            buttonType="inverted"
+            type="submit"
+            disabled={!values.email.length && !values.password.length}
+            additionalStyles={'margin-top: 13px;'}
+          >
             Submit
           </CustomButton>
         </Form>
